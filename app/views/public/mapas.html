@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>[config_site_title] - [config_site_description]</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />     
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <meta http-equiv="Cache-control" content="public" />
+		<link href="images/layout/faveicon.ico" rel="icon" type="image/x-icon" />
+        <meta name="description" content="[config_site_description]" />
+        <meta name="keywords" content="[config_site_keywords]" />
+        <meta name="author" content="[config_site_title]" />
+        <meta name="robots" content="all" /> 
+        <meta name="language" content="br" /> 
+        <meta name="robots" content="follow" />	          
+        <link href="js/jquery/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="css/public/main.css" rel="stylesheet" />
+        <link href="js/jquery/gmap/map.css" rel="stylesheet" />
+    </head>
+    <body>
+        <?php include 'header.html'; ?>
+        <div id="map"></div>
+        <div class="">
+            <div id="zoom_controle">
+                <div id="zoom_slider"><img src="js/jquery/gmap/slider_zoom.png" width="44" height="28" /></div>
+                <div id="zoomOut" style="width:30px; cursor:pointer; float:left; height:23px;"></div>
+                <div id="zoomIn" style="width:30px; cursor:pointer; float:left; height:23px; margin-left:240px;"></div>
+                <div id="zoom_slider_1"></div>
+            </div>
+        </div>
+        <script src="js/jquery/jquery-1.8.3.min.js"></script>
+        <script src="js/jquery/bootstrap/bootstrap.min.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=false&language=pt-BR&key=AIzaSyBsxXlQrIJR-HxLReX6yOq_h5BBLn8uxmE"></script>
+        <script src="js/jquery/gmap/gmaps.js"></script>
+        <script src="js/jquery/gmap/markers.js"></script>
+        <script src="js/jquery/gmap/init.js"></script>
+        <script src="js/jquery/gmap/markerclusterer.js"></script>
+        <script src="js/public/atd.js" type="text/javascript"></script>        
+        <script src="js/public/main.js" type="text/javascript"></script>        
+        <?php include 'footer.html'; ?>
+        <script>
+            mapInit('[init_lat]','[init_lon]'); 
+             setTimeout(function(){
+                 [panTo]
+             },1000)
+        </script>
+    </body>
+</html>

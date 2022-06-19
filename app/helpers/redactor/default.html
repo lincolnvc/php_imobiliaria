@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>	
+        <title>Default</title>
+        <meta charset="iso-8859-1">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/style.css" /> 		
+        <script type="text/javascript" src="lib/jquery-1.7.min.js"></script>	
+        <link rel="stylesheet" href="redactor/css/redactor.css" />
+        <script src="redactor/redactor.js"></script>			
+    </head>
+    <body>
+        <div id="page">
+            <form action="post.php" method="post">
+                <textarea id="redactor_content" name="content" style="height: 460px;">
+                     <h2>Hello and Welcome</h2>
+                </textarea>	
+                <p><input type="submit" value="Send" name="send" /></p>
+            </form>
+        </div>	
+
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $('#redactor_content').redactor({ fileUpload: 'file_upload.php' });
+            });
+        </script>
+
+    </body>
+</html>

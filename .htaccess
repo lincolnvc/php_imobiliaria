@@ -1,0 +1,75 @@
+RewriteEngine On
+
+# Diretorios extras
+RewriteRule ^testes - [L,NC]
+RewriteRule ^exemplo - [L,NC]
+
+#padrozinar diretorio /admin
+RewriteRule ^admin/([a-zA-Z0-9-_/]+)/?$ ./index.php?dir=admin&route=$1 [L,QSA]
+RewriteRule ^admin/([a-zA-Z0-9-_/]+)?$ ./index.php?dir=admin&route=index [L,QSA]
+RewriteRule ^admin([a-zA-Z0-9-_/]+)?$ ./index.php?dir=admin&route=index [L,QSA]
+
+#chat
+RewriteRule ^atd - [L,NC]
+RewriteRule ^/atd - [L,NC]
+RewriteCond $1 !^(css|js|img|fotos|slide)/
+
+#Diretorios da base
+RewriteRule ^([a-zA-Z0-9-_/]+)/?$ ./index.php?route=$1 [L,QSA]
+RewriteRule ^([a-zA-Z0-9-_/]+)?$ ./index.php?route=index [L,QSA]
+
+#Pagina 404
+ErrorDocument 404 404.php
+
+<FilesMatch "\.(html|css|js|gif|jpg|jpeg|png|ico|swf)$">
+    #Header set Cache-Control "max-age=2692000, proxy-revalidate"
+</FilesMatch>
+
+<FilesMatch "\.(js|css|xml|gz)$">
+   #Header append Vary Accept-Encoding
+</FilesMatch>
+
+
+<IfModule mod_headers.c>
+  Header unset ETag
+</IfModule>
+FileETag None
+
+
+
+<IfModule mod_expires.c>
+	ExpiresActive on
+	ExpiresDefault                          "access plus 1 month"
+	ExpiresByType text/cache-manifest       "access plus 0 seconds"
+	# Html
+	ExpiresByType text/html                 "access plus 1 week"
+	# Data
+	ExpiresByType text/xml                  "access plus 0 seconds"
+	ExpiresByType application/xml           "access plus 0 seconds"
+	ExpiresByType application/json          "access plus 0 seconds"
+	# Feed
+	ExpiresByType application/rss+xml       "access plus 1 hour"
+	ExpiresByType application/atom+xml      "access plus 1 hour"
+	# Favicon
+	ExpiresByType image/x-icon              "access plus 1 week"
+	# Media: images, video, audio
+	ExpiresByType image/gif                 "access plus 1 month"
+	ExpiresByType image/png                 "access plus 1 month"
+	ExpiresByType image/jpg                 "access plus 1 month"
+	ExpiresByType image/jpeg                "access plus 1 month"
+	ExpiresByType video/ogg                 "access plus 1 month"
+	ExpiresByType audio/ogg                 "access plus 1 month"
+	ExpiresByType video/mp4                 "access plus 1 month"
+	ExpiresByType video/webm                "access plus 1 month"
+	# HTC files
+	ExpiresByType text/x-component          "access plus 1 month"
+	# Webfonts
+	ExpiresByType application/x-font-ttf    "access plus 1 month"
+	ExpiresByType font/opentype             "access plus 1 month"
+	ExpiresByType application/x-font-woff   "access plus 1 month"
+	ExpiresByType image/svg+xml             "access plus 1 month"
+	ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+	# CSS / JS
+	ExpiresByType text/css                  "access plus 1 year"
+	ExpiresByType application/javascript    "access plus 1 year"
+</IfModule>

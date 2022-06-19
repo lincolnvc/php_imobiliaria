@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>[config_site_title] | Painel Administrativo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <script src="js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+        <script src="js/jquery/jquery-ui-1.9.2.js" type="text/javascript"></script>
+        <script src="js/jquery/bootstrap/bootstrap.js" type="text/javascript"></script>
+        <script src="js/jquery/stupidtable.js" type="text/javascript"></script>
+        <script src="js/admin/main.js" type="text/javascript"></script>
+        <script src="js/admin/subcategoria.js" type="text/javascript"></script>
+        <link href="js/jquery/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="js/jquery/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+        <link href="css/admin/main.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <div class="container" id="main">
+
+            <div class="row-fluid">
+                <div id="top"><h1>[config_site_title] | Painel Administrativo</h1></div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span12 bar">
+                    <div class="span3"></div>
+
+                    <div class="span9">
+
+                        <div class="pull-right btn-toolbar" style="margin: 0;margin-top:7px;">
+                            <div class="btn-group dropdown">
+                                <button class="btn-mini btn primary btn-inverse"> <i class="icon icon-user icon-white"></i> [user_name]</button>
+                                <button class="btn-mini btn primary btn-inverse dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="[baseUri]/admin/usuario/me/" style="font-size: 9px;">Meus Dados</a></li>
+                                    <li><a href="[baseUri]/admin/login/logout/" style="font-size: 9px;">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+
+                <div class="span3">
+                    <dl id="nav-left">
+                        <dt><a href="javascript:void(0)" id="dash"><i class="icon-th icon-white"></i> Dashboard <b class="icon-chevron-down"></b></a></dt>
+                        <dd>
+                            <ul>
+                                <li><a href="[baseUri]/admin/"><i class="icon-home icon-white"></i> Home</a></li>
+                                <li><a href="[baseUri]/admin/dashboard/itens/"><i class="icon-star icon-white"></i> Imóveis Mais Visitados</a></li>
+                            </ul>
+                        </dd>
+                        <dt class="active"><a href="javascript:void(0)" id="m1"><i class="icon-filter icon-white"></i> Cidades <b class="icon-chevron-down"></b></a></dt>
+                        <dd>
+                            <ul>
+                                <li><a href="[baseUri]/admin/categoria/"><i class="icon-tag icon-white"></i> Gerenciar Cidades</a></li>
+                                <li><a class="active" href="[baseUri]/admin/subcategoria/"><i class="icon-tags icon-white"></i> Gerenciar Bairros</a></li>
+                            </ul>
+                        </dd>
+                        <dt><a href="javascript:void(0)"><i class="icon-home icon-white"></i> Imóveis <b class="icon-chevron-down"></b></a></dt>
+                        <dd>
+                            <ul>
+                                <li><a href="[baseUri]/admin/item/novo/"><i class="icon-plus-sign icon-white"></i> Cadastrar Novo Imóvel</a></li>
+                                <li><a href="[baseUri]/admin/item/"><i class="icon-th-list icon-white"></i> Exibir Imóveis Cadastrados</a></li>
+                                <li><a href="[baseUri]/admin/item/busca/"><i class="icon-search icon-white"></i> Pesquisar Imóveis</a></li>
+                                <li><a href="[baseUri]/admin/item/posicao/"><i class="icon-move icon-white"></i> Alterar Posições de Destaque</a></li>
+                            </ul>
+                        </dd>
+                        <dt><a href="javascript:void(0);"><i class="icon-user icon-white"></i> Proprietários  <b class="icon-chevron-down"></b></a></dt>                        
+                        <dd>
+                            <ul>
+                                <li><a href="[baseUri]/admin/proprietario/"><i class="icon-th-list icon-white"></i> Gerenciar Proprietários</a></li>
+                                <li><a  href="[baseUri]/admin/proprietario/imoveis/"><i class="icon-th-list icon-white"></i> Proprietários x Imóveis</a></li>
+                            </ul>
+                        </dd>                         
+                        <dt><a href="javascript:void(0)"><i class="icon-comment icon-white"></i> Atendimento On-line <b class="icon-chevron-down"></b></a></dt>
+                        <dd>
+                            <ul>
+                                <li><a href="[baseUri]/atd/operator/index.php?locale=pt-br" target="_blank"><i class="icon-user icon-white"></i> Iniciar Atendimento Online</a></li>
+                            </ul>
+                        </dd>                           
+                        <dt class="[HideAccess]"><a href="javascript:void(0)"><i class="icon-folder-close icon-white"></i> Localização e Contato  <b class="icon-chevron-down"></b></a></dt>
+                        <dd class="[HideAccess]">
+                            <ul>
+                                <li><a href="[baseUri]/admin/site/"><i class="icon-th-list icon-white"></i> Exibir dados de Contato</a></li>
+                            </ul>
+                        </dd>
+                        <dt class="[HideAccess]"><a href="javascript:void(0)"><i class="icon-wrench icon-white"></i> Configurações <b class="icon-chevron-down"></b></a></dt>
+                        <dd class="[HideAccess]">
+                            <ul>
+                                <li><a href="[baseUri]/admin/configuracao/"><i class="icon-cog icon-white"></i> Configurações Gerais</a></li>
+                                <li><a href="[baseUri]/admin/smtpc/"><i class="icon-envelope icon-white"></i> Configurações de E-mail</a></li>
+                                <li><a href="[baseUri]/admin/usuario/"><i class="icon-user icon-white"></i> Usuários do Sistema</a></li>
+                            </ul>
+                        </dd>
+                    </dl>                   
+                </div>                
+
+                <div class="span9" id="right">
+
+                    <div class="row-fluid">
+
+                        <div class="panel">
+                            <div class="accordion" id="add-categoria">
+                                <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                        <a class="accordion-toggle panel-link" data-toggle="collapse" data-parent="#add-categoria" href="#collapseOne">
+                                            <i class="icon-plus-sign icon-white"></i>  <b>Cadastrar Novo Bairro</b>
+                                        </a>
+                                    </div>
+                                    <div id="collapseOne" class="accordion-body collapse">
+                                        <div class="accordion-inner accordion-inner-inverse">
+                                            <form name="f-categoria" id="f-categoria" class="form mar-top-10" method="post" onSubmit="return valida()"
+                                                  action="[baseUri]/admin/subcategoria/incluir/">
+                                                <div class="input-prepend">
+                                                    <span class="add-on">Cidade: </span>
+                                                    <select name="sub_categoria" id="sub_categoria" class="span6">
+                                                        <option value="">Selecione uma cidade</option>
+                                                        <!--{loop:combo}-->
+                                                        <!--{<option value="combo.categoria_id">combo.categoria_title</option>}-->
+                                                        <!--{end:combo}-->
+                                                    </select>
+                                                </div>
+
+                                                <div class="input-prepend">
+                                                    <span class="add-on">Nome do Bairro: </span>
+                                                    <input class="span6 ucfirst" name="sub_title" id="sub_title" type="text" placeholder="Título / Nome da Subcategoria" />
+                                                    <button type="submit" class="btn btn-action" id="btn-add">Cadastrar</button>
+                                                    <button type="button" class="btn cancel">Cancelar</button>
+                                                </div>
+                                            </form> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form id="f-remove" action="[baseUri]/admin/subcategoria/massremove/" method="post">
+                            <table cellpadding="0" cellspacing="0" border="0" class="table tabler table-striped">
+                                <thead>
+                                    <tr>
+                                        <th width="25px"><a href="javascript:void(0)" onclick="sellectAll()" id="selectAll"><i class="icon-check icon-white"></i></a> &nbsp;</th>
+                                        <th class="type-int" width="40px"><i class="icon-filter icon-white"></i> <b title="Ordenar por ID">ID</b></th>
+                                        <th class="type-string"><i class="icon-filter icon-white"></i> <b title="Ordenar por Bairro">Bairro</b></th>
+                                        <th class="type-string"><i class="icon-filter icon-white"></i> <b title="Ordenar por Cidade">Cidade</b></th>
+                                        <th  width="80px" class="type-string"><i class="icon-filter icon-white"></i> <b title="Ordenar por número de itens">Imóveis</b></th>
+                                        <th width="65px"><i class="icon-cog icon-white"></i> <b title="Editar ou Remover Bairros">Ação</b></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--{loop:rs}-->
+                                    <!--{<tr class="gradeX">}-->
+                                    <!--{<td><input type="checkbox" class="chk" name="check[]" id="rs.sub_id" value="rs.sub_id" /></td>}-->
+                                    <!--{<td>rs.sub_id</td>}-->
+                                    <!--{<td>rs.sub_title</td>}-->
+                                    <!--{<td>rs.categoria_title</td>}-->
+                                    <!--{<td>(rs.sub_item)</td>}-->
+                                    <!--{<td>}-->
+                                    <!--{<button class="btn btn-mini edit tips-top" type="button" id="rs.sub_id" cat="rs.categoria_id" title="editar bairro" name="rs.sub_title"><i class="icon-edit"></i></button>}-->
+                                    <!--{<button class="btn btn-mini remove tips-top btn-danger" type="button" id="rs.sub_id" title="remover bairro"><i class="icon-trash icon-white"></i></button>}-->
+                                    <!--{</td>}-->
+                                    <!--{</tr>}-->
+                                    <!--{end:rs}-->
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th style="text-align: right"><img src="images/icons/acurve.png" style="margin-top: -8px;"/> </th>
+                                        <th>[sub_qtde]  &nbsp;bairros &nbsp;cadastrados</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <br />
+                            <button id="btn-mr" class="btn btn-danger btn-small" type="button">
+                                <i class="icon-trash icon-white"></i>
+                                Remover Selecionados
+                            </button>                            
+                        </form>                            
+                        <div class="pagination">
+                            <ul class="pull-right">
+                                <!--{pages}-->
+                            </ul>
+                        </div>
+                    </div>                    
+
+
+                </div>
+
+                <div class="row-fluid">
+                    <div class="span12 bar"></div>
+                </div>           
+
+                <div class="row-fluid">
+                    <div id="footer"></div>
+                </div>            
+
+            </div><!--end row-fluid-->             
+
+        </div> <!--end main-->
+
+        <div class="modal hide fade" id="modal-remove">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h5><img src="images/icons/alert.png" /> Remover Bairro</h5>
+            </div>
+            <div class="modal-body">
+                <p>Você está prestes a remover um bairro e todos os seus imóveis!</p>
+                <p>Deseja realmente prosseguir?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:void(0)" onclick="$('#modal-remove').modal('hide')" class="btn btn-small">Cancelar</a>
+                <a href="javascript:void(0)" id="btn-remove" class="btn btn-small btn-danger">Confirmar Remoção</a>
+            </div>
+        </div> 
+
+        <div class="modal hide fade" id="modal-mass-remove">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h5><img src="images/icons/alert.png" /> Remover Bairro</h5>
+            </div>
+            <div class="modal-body">
+                <p>Você está prestes a remover os bairros selecionadas e todas os seus imóveis!</p>
+                <p>Deseja realmente prosseguir?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:void(0)" onclick="$('#modal-mass-remove').modal('hide')" class="btn btn-small">Cancelar</a>
+                <a href="javascript:void(0)" id="btn-mass-remove" class="btn btn-small btn-danger">Confirmar Remoção</a>
+            </div>
+        </div>      
+        <script>
+            var flag = 0;
+            function sellectAll() {                
+                if(flag == 0){
+                    flag = 1;
+                    $('#f-remove .chk').attr('checked','checked');
+                }
+                else{
+                    flag = 0;
+                    $('#f-remove .chk').removeAttr('checked');
+                }
+            }
+            $('#btn-mr').live('click',function(){
+                var fl = false;
+                $('#f-remove').find('.chk').each(function(){
+                    if($(this).is(':checked') ){
+                        fl = true;
+                    }
+                })
+                if(fl == true){
+                    $('#modal-mass-remove').modal('show');
+                }else{
+                    notify('<h1>Você precisa selecionar ao menos um item!</h1>')
+                    return false;
+                }
+            });
+            $('#btn-mass-remove').live('click',function(){
+                $('#f-remove').submit();
+            })
+        </script>
+
+        <script>
+            window.onload = function(){
+                [msgOnload]
+            }
+        </script>        
+    </body>
+</html>
